@@ -1,6 +1,7 @@
 import express from "express";
 import morgan from "morgan";
 import tweetsRouter from './router/tweets.js';
+import authRouter from './router/auth.js';
 
 const app = express();
 
