@@ -30,7 +30,7 @@ export async function createTweet(req, res, next) {
 
 // 트윗을 변경하는 함수 
 export async function updateTweet(req, res, next) {
-    const id = req.paramas.id;
+    const id = req.params.id;
     const text = req.body.text;
     const tweet = await tweetRepository.update(id, text);
     if(tweet){
