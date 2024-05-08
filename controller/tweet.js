@@ -1,6 +1,6 @@
 import * as tweetRepository from '../data/tweet.js';
 
-// 모든 트윗을 가져오는 함수
+// 여러 트윗을 가져오는 함수
 export async function getTweets(req, res){
     const username = req.query.username;
     const data = await (username ? tweetRepository.getAllByUsername(username) 
@@ -23,8 +23,8 @@ export async function getTweet(req, res, next) {
 
 // 트윗을 생성하는 함수
 export async function createTweet(req, res, next) {
-    const {text, name, username} = req.body;
-    const tweet = await tweetRepository.create(text, name, username);
+    const {text} = req.body;
+    const tweet = await tweetRepository.create(text, req.userId);
     res.status(201).json(tweet);
 }
 
